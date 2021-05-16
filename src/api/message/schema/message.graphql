@@ -1,0 +1,24 @@
+scalar Date
+
+
+type Query {
+  message(id: ID!): Message
+}
+
+type Mutation {
+  createMessage(createMessageInput: CreateMessageInput): Message
+}
+
+type Message {
+  id: String
+  num_cliente: Int
+  cpf_cliente: String
+  status: String
+  source: String
+  criada_em: Date
+}
+
+input CreateMessageInput {
+  num_cliente: Int
+  cpf_cliente: String
+}
