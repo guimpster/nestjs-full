@@ -17,8 +17,8 @@ export class MessageResolver {
 
   @Mutation('createMessage')
   async createMessage(
-    @Args('createMessageInput') args: CreateMessageDto,
+    @Args('createMessageInput') createMessageDto: CreateMessageDto,
   ): Promise<Message> {
-    return this.messageService.create(args);
+    return this.messageService.create(createMessageDto);
   }
 }

@@ -4,7 +4,7 @@ export class Message {
   cpf_cliente: string;
   status: string;
   source: string;
-  criada_em: Date;
+  created_at: Date;
 
   constructor(partial: Partial<Message>) {
     Object.assign(this, partial);

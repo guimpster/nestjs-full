@@ -1,0 +1,21 @@
+mutation CreateMessage($createMessageInput: CreateMessageInput) {
+  createMessage(createMessageInput: $createMessageInput) {
+    cpf_cliente
+    num_cliente
+    id
+    status
+    source
+    created_at
+  }
+}
+
+query Query($messageId: ID!) {
+  message(id: $messageId) {
+    id
+    num_cliente
+    cpf_cliente
+    status
+    source
+    created_at
+  }
+}

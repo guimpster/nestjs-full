@@ -24,7 +24,7 @@ export class MysqlMessageRepository extends MessageRepository {
       num_cliente: message.num_cliente,
       status: 'CREATED',
       source: 'DEMO',
-      criada_em: new Date(),
+      created_at: new Date(),
     };
     const mysqlMessage = await this.messageMysqlRepository.save(
       new MysqlMessage({

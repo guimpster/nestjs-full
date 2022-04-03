@@ -15,7 +15,7 @@ type Message {
   cpf_cliente: String
   status: String
   source: String
-  criada_em: Date
+  created_at: Date
 }
 
 input CreateMessageInput {

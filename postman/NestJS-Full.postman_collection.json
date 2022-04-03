@@ -1,0 +1,133 @@
+{
+	"info": {
+		"_postman_id": "561557b4-9182-4e49-89ae-f3dfae10eb8c",
+		"name": "NestJS-Full",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "elasticsearch",
+			"item": [
+				{
+					"name": "message",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"const jsonData = JSON.parse(responseBody);",
+									"postman.setEnvironmentVariable(\"messageId\", jsonData.id);"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"num_cliente\": 12345,\n    \"cpf_cliente\": \"12234455\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:3000/trigger",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"trigger"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "message",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:3000/trigger/{{messageId}}",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"trigger",
+								"{{messageId}}"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "kafka",
+			"item": [
+				{
+					"name": "message",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"key\": \"abedef\",\n    \"numbers\": [\n        1,\n        2,\n        3\n    ]\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:3000/orchestrator-client/event",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"orchestrator-client",
+								"event"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "event",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"key\": \"abedef\",\n    \"numbers\": [\n        1,\n        2,\n        3\n    ]\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:3000/orchestrator-client/message",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"orchestrator-client",
+								"message"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}

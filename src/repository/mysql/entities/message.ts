@@ -22,5 +22,5 @@ export class Message {
   source: string;
 
   @Column('date')
-  criada_em: Date;
+  created_at: Date;
 }

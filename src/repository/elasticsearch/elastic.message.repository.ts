@@ -30,7 +30,7 @@ export class ElasticMessageRepository extends MessageRepository {
               cpf_cliente: { type: 'keyword' },
               status: { type: 'keyword' },
               source: { type: 'keyword' },
-              criada_em: { type: 'date' },
+              created_at: { type: 'date' },
             },
           },
         },
@@ -50,7 +50,7 @@ export class ElasticMessageRepository extends MessageRepository {
       num_cliente: message.num_cliente,
       status: 'CREATED',
       source: 'DEMO',
-      criada_em: new Date(),
+      created_at: new Date(),
     };
     const esMessage = await this.esService.index({
       index: this.configService.get('ELASTIC_MESSAGE_INDEX'),
