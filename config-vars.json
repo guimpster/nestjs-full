@@ -1,7 +1,7 @@
 {
   "NODE_ENV": "dev",
-  "API_PORT": 3000,
   "DATE_LOCALIZATION": "pt-BR",
+  "API_PORT": 3000,
   "API_HOST": "localhost",
   "ELASTIC_HOST_DEV": "http://localhost:9200",
   "ELASTIC_PORT": "9200",
@@ -10,5 +10,7 @@
   "MYSQL_PORT": 3306,
   "MYSQL_USER": "root",
   "MYSQL_PASS": "abc123",
-  "MYSQL_DATABASE": "teste"
+  "MYSQL_DATABASE": "teste",
+  "KAFKA_CLIENT_ID": "1",
+  "KAFKA_HOST": "localhost:9092"
 }

@@ -13,6 +13,10 @@ async function startMicroservices(
   app: NestFastifyApplication,
   configService: ConfigService,
 ) {
+  console.log({
+    clientId: configService.get('KAFKA_CLIENT_ID'),
+    brokers: [configService.get('KAFKA_HOST')],
+  })
   app.connectMicroservice<MicroserviceOptions>({
     transport: Transport.KAFKA,
     options: {
@@ -22,7 +26,7 @@ async function startMicroservices(
       },
     },
   });
-  await app.startAllMicroservicesAsync();
+  await app.startAllMicroservices();
 }
 
 async function bootstrap() {

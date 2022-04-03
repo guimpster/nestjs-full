@@ -1,5 +1,7 @@
 import { Module } from '@nestjs/common';
 import { GraphQLModule } from '@nestjs/graphql';
+import { ApolloDriver, ApolloDriverConfig } from '@nestjs/apollo';
+
 
 import { MessageService } from 'src/business/message/service/message.service';
 import { MessageRepository } from 'src/business/message/repository/message.repository';
@@ -12,7 +14,8 @@ import { CommonModule } from './common/common.module';
   imports: [
     MysqlModule,
     CommonModule,
-    GraphQLModule.forRoot({
+    GraphQLModule.forRoot<ApolloDriverConfig>({
+      driver: ApolloDriver,
       include: [MessageModule],
       typePaths: ['src/api/message/schema/*.graphql'],
       installSubscriptionHandlers: false,

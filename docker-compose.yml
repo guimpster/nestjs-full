@@ -98,14 +98,15 @@ services:
     depends_on:
       - confluent-schema-registry
 
+  # NOT WORKING
   # https://github.com/Landoop/kafka-topics-ui
   # access trough http://localhost:8000/#/ instead of what the terminal says ;)
-  kafka-topics-ui:
-    image: landoop/kafka-topics-ui:0.9.4
-    ports:
-      - "8000:8000"
-    environment:
-      KAFKA_REST_PROXY_URL: http://confluent-rest-proxy:8082
-      PROXY: "TRUE"
-    depends_on:
-      - confluent-rest-proxy
+  # kafka-topics-ui:
+  #   image: landoop/kafka-topics-ui:0.9.4
+  #   ports:
+  #     - "8000:8000"
+  #   environment:
+  #     KAFKA_REST_PROXY_URL: http://confluent-rest-proxy:8082
+  #     PROXY: "TRUE"
+  #   depends_on:
+  #     - confluent-rest-proxy
